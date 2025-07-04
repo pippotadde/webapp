@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impostazioni</title>
+  {% load static %}
+  <!-- Collega il file CSS dedicato a Impostazioni -->
+  <link rel="stylesheet" href="{% static 'css/styles(impostazioni).css' %}">
+</head>
+<body>
+  <div class="settings-container">
+
+    <!-- Titolo (simile al tuo h2) -->
+    <h2 class="settings-title">Impostazioni</h2>
+
+    <!-- Elenco di pulsanti in stile “action-buttons” -->
+    <div class="action-buttons">
+      <button>
+        Lingua
+      </button>
+
+      <button>
+        Privacy e Sicurezza
+      </button>
+
+      <button>
+        Abbonamento
+      </button>
+
+      <button>
+        Help Center
+      </button>
+
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Log out</button>
+    </form>
+    
+    
+    <form action="{% url 'delete-account' %}" method="post" onsubmit="return confirm('Sei sicuro di voler eliminare il tuo account?');">
+        {% csrf_token %}
+        <button type="submit" class="delete-button">Elimina account</button>
+    </form>  
+    
+    </div>
+  </div>
+
+  <!-- Collega il file JS dedicato a Impostazioni -->
+  <script src="{% static 'javascript/javascript(impostazioni).js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #4c4d53, #282a36);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-container, .login-container { 
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    margin: 20px;
+    background-color: rgba(47, 49, 54, 0.95); /* Trasparenza */
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Ombra migliorata */
+    color: #ffffff;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.input-group {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    display: block;
+    color: #ffffff; /* Colore del testo in bianco */
+}
+
+.input-group input, 
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #202225;
+    color: #ffffff;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus, 
+.input-group select:focus {
+    outline: none;
+    border-color: #7289da;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #7289da;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5b6eae;
+}
+
+.login-container p {
+    color: #ffffff; /* Cambia il colore del testo in bianco */
+    font-size: 0.9rem;
+}
+
+.login-container p a {
+    color: #7289da; /* Colore blu per il link */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    font-weight: bold;
+}
+
+.login-container p a:hover {
+    color: #5b6eae; /* Colore diverso al passaggio del mouse */
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .register-container, .login-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}
+
+/* Sfondo nero trasparente */
+.overlay {
+    position: fixed; /* Fisso rispetto alla finestra */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Sfondo nero trasparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Sopra tutto il resto */
+}
+
+/* Stile del popup */
+.error-popup {
+    background-color: #fff; /* Sfondo bianco */
+    color: #333; /* Testo nero */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombra */
+    position: relative; /* Necessario per il posizionamento interno */
+}
+
+/* Pulsante "Chiudi" */
+.error-popup button {
+    background-color: #333; /* Sfondo del pulsante */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.error-popup button:hover {
+    background-color: #555;
+}

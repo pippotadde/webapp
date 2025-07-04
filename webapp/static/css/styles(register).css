@@ -1,0 +1,297 @@
+/* Stile di base */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #4c4d53, #282a36);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;  /* Impedisce lo scroll della pagina intera */
+
+  }
+  
+  /* Contenitore principale a dimensione fissa con scroll interno */
+  .register-container {
+    width: 100%;
+    height: 70vh; /* Altezza fissa */
+    width: 40vh;
+    overflow-y: auto; /* Scroll interno se il contenuto è troppo lungo */
+    overflow-x: hidden;
+    max-width: 600px;
+    padding: 10px;
+    margin: 120px auto 20px;
+    background-color: rgba(47, 49, 54, 0.95);
+    border-radius: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    text-align: center;
+    flex-shrink: 0;
+    animation: fadeIn 1s ease;
+
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  body::after {
+    content: "";
+    display: block;
+    height: 50px;
+  }
+  
+  /* Stile responsivo per schermi bassi */
+  @media (max-height: 800px) {
+    body {
+      justify-content: flex-start;
+      padding: 10px;
+    }
+    .register-container {
+      margin: 10px;
+    }
+  }
+  
+  /* Animazione di apparizione */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Titolo */
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  
+  /* Gruppi di input */
+  .input-group {
+    margin-top: 15px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    display: block;
+    color: #cccccc;
+  }
+  
+  .input-group input, 
+  .input-group select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #202225;
+    color: #ffffff;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .input-group input:focus, 
+  .input-group select:focus {
+    outline: none;
+    border-color: #7289da;
+    background-color: #2f3136;
+  }
+  
+  /* Pulsante di invio */
+  button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #7289da;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #5b6eae;
+    transform: translateY(-2px);
+  }
+  
+  button:active {
+    transform: translateY(1px);
+  }
+  
+  /* Stile responsivo */
+  @media (max-width: 600px) {
+    .register-container {
+      padding: 20px;
+      margin: 10px;
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+    button {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Migliorie visive per i placeholder */
+  ::-webkit-input-placeholder {
+    color: #aaaaaa;
+  }
+  :-moz-placeholder {
+    color: #aaaaaa;
+    opacity: 1;
+  }
+  ::-moz-placeholder {
+    color: #aaaaaa;
+    opacity: 1;
+  }
+  :-ms-input-placeholder {
+    color: #aaaaaa;
+  }
+  
+  /* Stile per input di tipo "date" */
+  input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #202225;
+    color: #ffffff;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  input[type="date"]:focus {
+    outline: none;
+    border-color: #7289da;
+    background-color: #2f3136;
+  }
+  
+  /* Scroll morbido */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+/* Contenitore consenso più semplice */
+.consent-group {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Distanza tra checkbox e testo */
+  margin-top: 20px;
+}
+
+/* Ingrandire la checkbox */
+.consent-group input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+/* Testo accanto alla checkbox */
+.consent-label {
+  font-size: 1rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Personalizzazione della barra di scorrimento SOLO verticale */
+.register-container::-webkit-scrollbar {
+  width: 6px; /* Riduce la larghezza */
+}
+
+/* Sfondo della scrollbar */
+.register-container::-webkit-scrollbar-track {
+  background: #2f3136; /* Stesso colore del contenitore */
+  border-radius: 10px;
+  margin: 40px 0; 
+}
+
+/* Thumb (la parte mobile) */
+.register-container::-webkit-scrollbar-thumb {
+  background: #232529; /* Colore della scrollbar */
+  border-radius: 10px;
+}
+
+/* Effetto al passaggio del mouse */
+.register-container::-webkit-scrollbar-thumb:hover {
+  background: #5b6eae;
+}
+
+/* Tendine Data di Nascita */
+.date-selects {
+  display: flex;
+  gap: 10px;
+}
+.date-selects select {
+  flex: 1;
+  appearance: none;
+  background: #202225;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 1rem;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+.date-selects select:focus {
+  outline: none;
+  border-color: #7289da;
+  background-color: #2f3136;
+}
+
+/* —————— Data di Nascita (3 tendine) —————— */
+.date-selects {
+  display: flex;
+  gap: 10px;
+}
+.date-selects select {
+  flex: 1;
+  appearance: none;
+  background: #202225;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 12px;       /* come gli altri input */
+  font-size: 1rem;
+}
+
+.date-selects select::-webkit-scrollbar {
+  display: none;           /* Chrome, Safari, Opera */
+}
+.date-selects select:focus {
+  outline: none;
+  border-color: #7289da;
+  background-color: #2f3136;
+}
+
+/* Uniforma anche il select Sesso */
+.input-group select {
+  appearance: none;
+  background: #202225;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 1rem;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+.input-group select:focus {
+  outline: none;
+  border-color: #7289da;
+  background-color: #2f3136;
+}
+

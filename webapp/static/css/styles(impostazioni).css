@@ -1,0 +1,111 @@
+/* Sfondo e font-base più grande */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  background: linear-gradient(to bottom, #4c4d53, #282a36);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  }
+  
+/* register-container */
+.settings-container {
+  max-height: 65vh; /* Altezza massima uguale alla pagina di registrazione */
+  width: 40vh; 
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-width: 600px;
+  padding: 10px;
+  background-color: rgba(47, 49, 54, 0.95);
+  border-radius: 40px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  text-align: center;
+  animation: fadeIn 1s ease;
+   /* Centratura verticale */
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+
+  /* Barra di scorrimento identica alla pagina di Registrazione */
+.settings-container::-webkit-scrollbar {
+  width: 6px; /* Larghezza uguale */
+}
+
+.settings-container::-webkit-scrollbar-track {
+  background: #2f3136;
+  border-radius: 10px;
+  margin: 20px 0; /* Per rendere la barra più corta */
+}
+
+.settings-container::-webkit-scrollbar-thumb {
+  background: #7289da;
+  border-radius: 10px;
+}
+
+.settings-container::-webkit-scrollbar-thumb:hover {
+  background: #5b6eae;
+}
+
+/* Titolo leggermente più grande */
+.settings-title {
+  margin-bottom: 30px;       /* Più spazio sotto al titolo */
+  font-size: 2rem;          /* Aumentato (prima potevi avere 1.5rem, ora 2rem) */
+}
+  
+/* Container dei pulsanti */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;  /* Più spazio tra i pulsanti */
+}
+  
+  /* Pulsanti identici alla pagina di Registrazione */
+.action-buttons button {
+  width: 100%;
+  padding: 15px;
+  background-color: #7289da;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-buttons button:hover {
+  background-color: #5b6eae;
+  transform: translateY(-2px);
+}
+
+.action-buttons button:active {
+  transform: translateY(1px);
+}
+/* Stile corretto per il pulsante "Elimina Account" */
+.delete-button {
+  background-color: #d14e4e !important; /* Usa !important per forzare il colore */
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: #b63f3f !important;
+  transform: translateY(-2px);
+}
+
+.delete-button:active {
+  transform: translateY(1px);
+}

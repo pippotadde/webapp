@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilo Utente</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles(profilo).css' %}">
+</head>
+<body>
+<div class="profile-container">
+
+    <!-- Iniziamo un form che racchiude username e descrizione -->
+    <form method="post" action="{% url 'edit_profile' %}">
+        {% csrf_token %}
+
+        <!-- Sezione Intestazione Profilo -->
+        <div class="profile-header">
+            <!-- Nuovo contenitore per il pulsante Modifica Immagine (resta fuori dal form, se vuoi) -->
+            <div class="edit-button-container">
+                <button id="edit-profile-picture">+</button>
+            </div>
+
+
+            <div class="background-image">
+                <!-- Pulsante SALVA in alto a destra (gestiremo lo stile via CSS) -->
+                <button type="submit" name="action" value="save_description_username" class="save-general-button">
+                    Salva
+                </button>
+            </div>
+
+            <div class="profile-picture">
+                {% if profile.profile_picture %}
+                    <img id="profile-img" src="{{ profile.profile_picture.url }}" alt="Immagine Profilo">
+                {% else %}
+                    <img id="profile-img" src="{% static 'images/default-profile.jpg' %}" alt="Immagine Profilo">
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Informazioni del Profilo -->
+        <div class="profile-info">
+
+            <!-- Sostituiamo la riga "Username: <span>" con un input modificabile -->
+            <div class="info-box">
+                <label for="username">Username:</label>
+            <input type="text" 
+                id="username" name="username" value="{{ profile.user.username }}" maxlength="30" />
+            </div>
+
+            <div class="info-box">
+                <label for="first_name">Nome:</label>
+                <input type="text" id="first_name" name="first_name" value="{{ profile.user.first_name }}" maxlength="30" readonly />
+            </div>
+            
+            <div class="info-box">
+                <label for="last_name">Cognome:</label>
+                <input type="text" id="last_name" name="last_name" value="{{ profile.user.last_name }}"maxlength="30" readonly />
+            </div>
+
+            <div class="description-box">
+                <label for="description">Descrizione:</label>
+                <textarea id="description" name="description" 
+                          placeholder="Inserisci una descrizione..."
+                          maxlength="200" 
+                          style="height: 75px;">{{ profile.description }}</textarea>
+            </div>
+        </div>
+
+        <!-- Pulsanti Azione -->
+        <div class="action-buttons">
+            <button id="liked-posts">Posti Piaciuti</button>
+            <button id="comments">Commenti</button>
+            <button id="settings" onclick="window.location.href='{% url 'impostazioni' %}';">Impostazioni</button>
+        </div>
+    </form>
+    <!-- Fine del form per username+descrizione -->
+
+    <!-- Modal per Modifica Immagine (resta un form separato) -->
+    <div id="edit-modal" class="modal hidden">
+        <div class="modal-content">
+            <form method="post" enctype="multipart/form-data" action="{% url 'edit_profile' %}">
+                {% csrf_token %}
+                <h2>Modifica Immagine del Profilo</h2>
+                <input type="file" id="new-profile-picture" name="profile_picture" accept="image/*">
+                <div class="modal-buttons">
+                    <button type="submit" class="save-button" name="action" value="save_picture">Salva</button>
+                    <button type="button" class="cancel-button" id="cancel-edit">Annulla</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<script src="{% static 'javascript/javascript(profilo).js' %}"></script>
+</body>
+</html>

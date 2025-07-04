@@ -1,0 +1,60 @@
+/* Assicura che il body e l'html occupino l'intera finestra */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; /* Facoltativo, puoi scegliere un altro font */
+}
+
+/* Mappa a schermo intero */
+#map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Mappa interattiva */
+}
+
+/* Barra di ricerca in alto */
+.search-container {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 100; /* Sta sopra la mappa */
+}
+
+/* Pulsanti di navigazione */
+.nav-buttons {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 100; /* Anche questi sopra la mappa */
+}
+
+/* Stile base per i pulsanti di navigazione */
+.nav-btn {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer; /* Aggiunge il puntatore “mano” al passaggio del mouse */
+}
+
+/* Effetto hover (facoltativo) */
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.8);
+}

@@ -1,0 +1,20 @@
+# Node (React)
+node_modules/
+build/
+dist/
+
+# Django
+*.pyc
+__pycache__/
+*.sqlite3
+*.log
+env/
+venv/
+
+# React + Django shared
+.env
+.DS_Store
+.vscode/
+.idea/
+media/
+staticfiles/

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrazione</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles(register).css' %}">
+</head>
+<body>
+  <div class="register-container">
+    <h1>Registrazione</h1>
+    <form id="registerForm" method="post">
+      {% csrf_token %}
+      <div class="input-group">
+        <label for="username">Nome Utente</label>
+        <input type="text" id="username" name="username" placeholder="Inserisci il tuo nome utente" required>
+      </div>
+      <div class="input-group">
+        <label for="firstName">Nome</label>
+        <input type="text" id="firstName" name="firstName" placeholder="Inserisci il tuo nome" required>
+      </div>
+      <div class="input-group">
+        <label for="lastName">Cognome</label>
+        <input type="text" id="lastName" name="lastName" placeholder="Inserisci il tuo cognome" required>
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="esempio@email.com" required>
+      </div>
+      <div class="input-group">
+        <label for="phoneNumber">Numero di telefono</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Inserisci il tuo numero"  pattern="[0-9]*" required>
+      </div>
+      <div class="input-group">
+        <label for="gender">Sesso</label>
+        <select id="gender" name="gender" required>
+          <option value="">Seleziona...</option>
+          <option value="male">Maschio</option>
+          <option value="female">Femmina</option>
+          <option value="unspecified">Preferisco non dirlo</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label>Data di Nascita</label>
+        <div class="date-selects">
+          <select id="birthDay" required>
+            <option value="">Giorno</option>
+          </select>
+          <select id="birthMonth" required>
+            <option value="">Mese</option>
+          </select>
+          <select id="birthYear" required>
+            <option value="">Anno</option>
+          </select>
+        </div>
+        <input type="hidden" id="birthdate" name="birthdate">
+      </div> 
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Crea una password" required>
+      </div>
+      <div class="input-group">
+        <label for="confirmPassword">Conferma Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Conferma la password" required>
+      </div>    
+      <div class="input-group consent-group">
+        <input type="checkbox" id="consent" name="consent" required>
+        <label for="consent" class="consent-label">
+            Acconsento al trattamento dei dati personali
+        </label>
+      </div>    
+      <button type="submit">Registrati</button>
+    </form>
+  </div>
+  <script src="{% static 'javascript/javascript(register).js' %}"></script>
+</body>
+</html>

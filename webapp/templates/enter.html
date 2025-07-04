@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles(enter).css' %}">
+</head>
+<body>
+    <!-- Overlay per il popup -->
+    {% if messages %}
+        <div class="overlay" id="errorOverlay">
+            <div class="error-popup">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+                <button onclick="closePopup()">Chiudi</button>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm" method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="email">Email o Username</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <a href="#" class="forgot-password">Password dimenticata?</a>
+            </div>
+            <button type="submit">Login</button>
+            <p>Non hai un account? <a href="{% url 'register' %}">Registrati ora</a></p>
+        </form>
+    </div>
+
+    <script>
+        function closePopup() {
+            const overlay = document.getElementById('errorOverlay');
+            overlay.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

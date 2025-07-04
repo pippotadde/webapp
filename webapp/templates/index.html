@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Web Moderna</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles(index).css' %}">
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Scopri il nostro mondo</h1>
+            <p>Social media è un termine collettivo per siti Web e applicazioni che si concentrano sulla comunicazione di contenuti e si basano sui concetti di comunità, interazione, condivisione e collaborazione. Le persone usano i social media per rimanere in contatto e interagire con amici, familiari e varie comunità di persone. Le aziende utilizzano le applicazioni social per commercializzare e promuovere i propri prodotti e tenere traccia delle preoccupazioni dei clienti.</p>
+            <div class="buttons">
+                <a href="{% url 'enter' %}" class="btn btn-login">Login</a>
+                <a href="{% url 'register' %}" class="btn btn-register">Registrati</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Instagram Style</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles(messaggi).css' %}">
+</head>
+<body>
+    <div class="chat-app">
+        <!-- Lista delle chat -->
+        <div class="chat-list">
+            <div class="list-header">
+                <h2>Chats</h2>
+                <button onclick="newChat()" class="btn new-chat"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="chat-preview" onclick="selectChat('chat1')">
+                <img src="{% static 'images/avatar1.jpg' %}" alt="User 1" class="avatar">
+                <div class="chat-info">
+                    <p class="chat-name">Chat 1</p>
+                    <p class="last-message">Ciao, come stai?</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Finestra della chat -->
+        <div class="chat-window">
+            <div class="messages" id="messageArea">
+                {% for message in messages %}
+                <div class="message">
+                    <p><strong>{{ message.sender }}:</strong> {{ message.content }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="message-input">
+                <button onclick="promptFileUpload()" class="icon-button"><i class="fas fa-camera"></i></button>
+                <button onclick="recordAudio()" class="icon-button"><i class="fas fa-microphone"></i></button>
+                <button onclick="showStickers()" class="icon-button"><i class="fas fa-smile"></i></button>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <input type="text" name="message" id="messageInput" placeholder="Scrivi un messaggio..." required>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/scripts-messagi.js' %}"></script>
+</body>
+</html>
